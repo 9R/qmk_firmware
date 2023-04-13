@@ -37,7 +37,7 @@ def rgb_effects(cli):
     keymap = cli.args.keymap
     keyboard = cli.args.keyboard
     keyboard_filesafe = keyboard.replace('/', '_')
-    rgb_matrix_path = Path(f'{KEYBOARD_OUTPUT_PREFIX}{keyboard_filesafe}_{keymap}/quantum/rgb_matrix/rgb_matrix.i')
+    rgb_matrix_path = Path(f'{KEYBOARD_OUTPUT_PREFIX}{keyboard_filesafe}_{keymap}/quantum/rgblight/rgblight.i')
 
     if not os.path.exists(rgb_matrix_path):
         cli.log.error(f"{rgb_matrix_path} does not exist.")
@@ -46,12 +46,12 @@ def rgb_effects(cli):
 
     with open(rgb_matrix_path, 'r') as f:
         file_contents = f.read()
-    enum_as_dict = {key: value for (key, value) in extract_enum_from_c_file_as_dict(file_contents, "rgb_matrix_effects").items() if key != "RGB_MATRIX_EFFECT_MAX"}
+    enum_as_dict = {key: value for (key, value) in extract_enum_from_c_file_as_dict(file_contents, "RGBLIGHT_EFFECT_MODE").items() if key != "RGBLIGHT_MODE_EFFECT_MAX"}
 
     max_value = max(enum_as_dict.values())
 
     def enum_name_to_effect_name(x):
-        return x.replace("RGB_MATRIX_", "")
+        return x.replace("RGBLIGHT_MODE_", "")
 
     formatted = [[f"{str(idx).zfill(len(str(max_value)))}. {enum_name_to_effect_name(enum_name)}", value] for idx, [enum_name, value] in enumerate(enum_as_dict.items())]
     print(json.dumps(formatted, cls=InfoJSONEncoder))
