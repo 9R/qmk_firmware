@@ -69,14 +69,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // └─────────────────────────────────────────────────┘ 
 
 #define RGB_DI_PIN D3
-#define RGBLED_NUM 42
-#define RGBLED_SPLIT { 21, 21 }
+//#define RGBLED_NUM 42
+#define RGBLED_NUM 36
+#define RGBLED_SPLIT { 18, 18 }
 #define RGB_MATRIX_LED_COUNT RGBLED_NUM
 
 #ifdef RGB_MATRIX_ENABLE
 #    define SPLIT_TRANSPORT_MIRROR
-#    define DRIVER_LED_TOTAL 42 // Number of LEDs
-#    define RGB_MATRIX_SPLIT { 21, 21 }
+//#    define DRIVER_LED_TOTAL 42 // Number of LEDs
+#    define DRIVER_LED_TOTAL 36 // Number of LEDs
+#    define RGB_MATRIX_SPLIT { 18, 18 }
 #    define RGB_MATRIX_MAXIMUM_BRIGHTNESS 180
 #    define RGB_MATRIX_STARTUP_HUE 35
 #    define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS
