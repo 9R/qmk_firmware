@@ -651,33 +651,33 @@ void render_os_lock_status(void) {
 int layerstate = 0;
 
 layer_state_t layer_state_set_kb(layer_state_t state) {
-      switch (get_highest_layer(layer_state | default_layer_state)) {
-            case 0:
-                strcpy ( layer_state_str, "BASE QWERTY");
-                break;
-            case 1:
-                strcpy ( layer_state_str, "BASE COLEMAK");
-                break;
-            case 2:
-                strcpy ( layer_state_str, "NUMPAD");
-                break;
-            case 3:
-                strcpy ( layer_state_str, "FUNCTION");
-                break;
-            case 4:
-                strcpy ( layer_state_str, "NAVIGATION");
-                break;
-            case 5:
-                strcpy ( layer_state_str, "SYSTEM");
-                break;
-            default:
-                strcpy ( layer_state_str, "XXXXXX");
-        }
-      if (dmacro_num < 1) {
-          strcpy ( o_text, layer_state_str );
+    state = layer_state_set_user(state);
+    switch (get_highest_layer(state)) {
+        case _QWERTY :
+            strcpy ( layer_state_str, "BASE QWERTY");
+            break;
+        case _COLEMAK:
+            strcpy ( layer_state_str, "BASE COLEMAK");
+            break;
+        case _NUM:
+            strcpy ( layer_state_str, "NUMPAD");
+            break;
+        case _FUNC:
+            strcpy ( layer_state_str, "FUNCTION");
+            break;
+        case _NAV:
+            strcpy ( layer_state_str, "NAVIGATION");
+            break;
+        case _SYS:
+            strcpy ( layer_state_str, "SYSTEM");
+            break;
+        default:
+            strcpy ( layer_state_str, "XXXXXX");
     }
-  //return state;
-//    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    if (dmacro_num < 1) {
+        strcpy ( o_text, layer_state_str );
+    }
+    return state;
 }
 
 
@@ -793,7 +793,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // ┌───────────────────────────────────────────────────────────┐
 // │ l a y e r                                                 │
 // └───────────────────────────────────────────────────────────┘
-/*
+
         case COLEMAK:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_COLEMAK);
@@ -810,39 +810,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 #endif // HAPTIC_ENABLE
             }
             return false;
-        case NAV:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_NAV);
-                #ifdef HAPTIC_ENABLE
-                  DRV_pulse(transition_hum);
-                #endif // HAPTIC_ENABLE
-            }
-            return false;
-        case SYS:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_SYS);
-                #ifdef HAPTIC_ENABLE
-                  DRV_pulse(transition_hum);
-                #endif // HAPTIC_ENABLE
-            }
-            return false;
-        case FUNC:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_FUNC);
-                #ifdef HAPTIC_ENABLE
-                  DRV_pulse(transition_hum);
-                #endif // HAPTIC_ENABLE
-            }
-            return false;
-        case NUM:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_NUM);
-                #ifdef HAPTIC_ENABLE
-                  DRV_pulse(transition_hum);
-                #endif // HAPTIC_ENABLE
-            }
-            return false;
-*/
 // ┌───────────────────────────────────────────────────────────┐
 // │ q m k                                                     │
 // └───────────────────────────────────────────────────────────┘
