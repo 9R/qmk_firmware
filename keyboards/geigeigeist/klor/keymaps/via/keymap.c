@@ -408,7 +408,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
    │   F12   │   F11   │   F10   │   F9    │  PRNT   │ ╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮ │         │         │         │         │         │
    ├─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┤
-   │    F3   │    F4   │   F5    │   F6    │  CAPSLK ├─╯                ╰─┤         │  Shift  │  Ctrl   │   Alt   │  Gui    │
+   │    F11  │    F4   │   F5    │   F6    │  CAPSLK ├─╯                ╰─┤         │  Shift  │  Ctrl   │   Alt   │  Gui    │
    ├─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┤
    │    F10  │    F1   │   F2    │   F3    │ INSERT  ││  MUTE  ││PLY/PSE ││         │         │         │         │         │
    └─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┘
@@ -417,9 +417,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_FUNC] = LAYOUT_saegewerk(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         |
-    KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  KC_LSFT,  KC_LCTL,  KC_LALT,  KC_LGUI,
-    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_MUTE,   KC_MPLY,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    KC_F12,   KC_F7,    KC_8,     KC_9,     KC_PSCR,                        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    KC_F11,   KC_F4,    KC_5,     KC_6,     KC_CAPS,                        XXXXXXX,  KC_LSFT,  KC_LCTL,  KC_LALT,  KC_LGUI,
+    KC_F10,   KC_F1,    KC_2,     KC_3,     KC_INS,    KC_MUTE,   KC_MPLY,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
                          KC_ESC,  SYS_TAB,  NAV_ENT,                       NUM_SPC,  FUNC_BSC, KC_DEL
  ),
  /*
@@ -433,7 +433,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ├─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┤
    │   Gui   │   Alt   │  Ctrl   │  Shift  │    [    ├─╯                ╰─┤    ]    │   Left  │  Down   │  Right  │ End     │
    ├─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┤
-   │         │         │         │         │    (    ││  MUTE  ││PLY/PSE ││    )    │         │         │         │         │
+   │         │         │         │         │    (    ││  MUTE  ││PLY/PSE ││    )    │   Home  │  End    │         │         │
    └─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┘
                        │         │ ADJUST  │    ▼    │                    │    ▼    │    ▼    │    ▼    │  
                        └─────────┴─────────┴─────────┴                    ┴─────────┴─────────┴─────────┘ */ 
@@ -442,7 +442,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         |
      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_LCBR,                      KC_RCBR,  KC_PGUP,  KC_UP,    KC_PGDN,  KC_HOME,
      KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_LBRC,                      KC_RBRC,  KC_LEFT,  KC_DOWN,  KC_RIGHT, KC_END,
-     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_LPRN,   KC_MUTE,  KC_MPLY, KC_RPRN,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_LPRN,   KC_MUTE,  KC_MPLY, KC_RPRN,  KC_HOME,  KC_END,   XXXXXXX,  XXXXXXX,
                           KC_ESC,  SYS_TAB,  NAV_ENT,                      NUM_SPC,  FUNC_BSC, KC_DEL
  ),
  /*
@@ -463,9 +463,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_SYS] = LAYOUT_saegewerk(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         |
-     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-     KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-     QK_BOOT,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_MUTE,  KC_MPLY,  QWERTY,   COLEMAK,  XXXXXXX,  XXXXXXX,  QK_BOOT,
+     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      RGB_TOG,  RGB_MOD,  RGB_HUI,  RGB_SAI,  RGB_VAI, 
+     KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,                      RGB_TOG,  RGB_RMOD, RGB_HUD,  RGB_SAD,  RGB_VAD, 
+     QK_BOOT,  EE_CLR,   XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_MUTE,  KC_MPLY,  QWERTY,   COLEMAK,  XXXXXXX,  EE_CLR,   QK_BOOT,
                           KC_ESC,  SYS_TAB,  NAV_ENT,                      NUM_SPC,  FUNC_BSC, KC_DEL
  )
 
