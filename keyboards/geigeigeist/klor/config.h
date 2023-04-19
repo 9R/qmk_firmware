@@ -38,8 +38,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL
 #define SOFT_SERIAL_PIN D2
 #define SERIAL_USE_MULTI_TRANSACTION
-//#define SPLIT_LAYER_STATE_ENABLE
-//#define SPLIT_USB_DETECT
+#define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_USB_DETECT
 
 
 // ┌─────────────────────────────────────────────────┐
