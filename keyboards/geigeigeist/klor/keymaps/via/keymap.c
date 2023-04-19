@@ -417,9 +417,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_FUNC] = LAYOUT_saegewerk(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         |
-    KC_F12,   KC_F7,    KC_8,     KC_9,     KC_PSCR,                        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    KC_F11,   KC_F4,    KC_5,     KC_6,     KC_CAPS,                        XXXXXXX,  KC_LSFT,  KC_LCTL,  KC_LALT,  KC_LGUI,
-    KC_F10,   KC_F1,    KC_2,     KC_3,     KC_INS,    KC_MUTE,   KC_MPLY,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    KC_F12,   KC_F7,    KC_F8,    KC_F9,    KC_PSCR,                        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    KC_F11,   KC_F4,    KC_F5,    KC_F6,    KC_CAPS,                        XXXXXXX,  KC_LSFT,  KC_LCTL,  KC_LALT,  KC_LGUI,
+    KC_F10,   KC_F1,    KC_F2,    KC_F3,    KC_INS,    KC_MUTE,   KC_MPLY,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
                          KC_ESC,  SYS_TAB,  NAV_ENT,                       NUM_SPC,  FUNC_BSC, KC_DEL
  ),
  /*
@@ -463,9 +463,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_SYS] = LAYOUT_saegewerk(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         |
-     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      RGB_TOG,  RGB_MOD,  RGB_HUI,  RGB_SAI,  RGB_VAI, 
-     KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,                      RGB_TOG,  RGB_RMOD, RGB_HUD,  RGB_SAD,  RGB_VAD, 
-     QK_BOOT,  EE_CLR,   XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_MUTE,  KC_MPLY,  QWERTY,   COLEMAK,  XXXXXXX,  EE_CLR,   QK_BOOT,
+     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      RGB_TOG,  RGB_MOD,  RGB_HUI,  RGB_SAI,  RGB_VAI,
+     KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,                      AU_TOGG,  RGB_RMOD, RGB_HUD,  RGB_SAD,  RGB_VAD,
+     QK_BOOT,  EE_CLR,   XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_MUTE,  KC_MPLY,  QWERTY,   COLEMAK,  OS_SWAP,  EE_CLR,   QK_BOOT,
                           KC_ESC,  SYS_TAB,  NAV_ENT,                      NUM_SPC,  FUNC_BSC, KC_DEL
  )
 
