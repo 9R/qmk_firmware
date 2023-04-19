@@ -846,43 +846,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 // ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
-#ifdef ENCODER_ENABLE
-
-// ┌───────────────────────────────────────────────────────────┐
-// │ e n c o d e r  L                                          │
-// └───────────────────────────────────────────────────────────┘ 
-
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-
-// ┌───────────────────────────────────────────────────────────┐
-// │ e n c o d e r  R                                          │
-// └───────────────────────────────────────────────────────────┘
-
-    } else if (index == 1) {
-      if (clockwise) {
-        tap_code(KC_MNXT);
-      } else {
-        tap_code(KC_MPRV);
-      }
-      if (clockwise) {
-        tap_code(KC_WH_U);
-      } else {
-        tap_code(KC_WH_D);
-      }
-    }
-    return true;
-}
-
-#endif // ENCODER_ENABLE
-
-
-
+#if defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+    [_QWERTY] =  { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),           ENCODER_CCW_CW(KC_WH_D, KC_WH_U)  },
+    [_COLEMAK] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),           ENCODER_CCW_CW(KC_WH_D, KC_WH_U)  },
+    [_NUM] =     { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),           ENCODER_CCW_CW(KC_WH_D, KC_WH_U)  },
+    [_FUNC] =    { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),           ENCODER_CCW_CW(KC_WH_D, KC_WH_U)  },
+    [_NAV] =     { ENCODER_CCW_CW(RGB_HUD, RGB_HUI),           ENCODER_CCW_CW(KC_MPRV, KC_MNXT)  },
+    [_SYS] =     { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),           ENCODER_CCW_CW(KC_WH_D, KC_WH_U)  },
+};
+#endif
 
 /*
 

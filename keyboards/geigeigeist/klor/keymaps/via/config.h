@@ -31,6 +31,7 @@ for more options.
 
 #define COMBO_COUNT 1
 
+#define ENCODER_MAP_KEY_DELAY 20
 
 // RGB matrix support
 #ifdef RGB_MATRIX_ENABLE
