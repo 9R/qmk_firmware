@@ -29,7 +29,7 @@ for more options.
 //#define NO_ACTION_TAPPING
 //#define NO_MUSIC_MODE
 
-#define COMBO_COUNT 1
+#define COMBO_COUNT 2
 
 #define ENCODER_MAP_KEY_DELAY 20
 

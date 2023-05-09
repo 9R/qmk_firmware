@@ -102,6 +102,37 @@ enum custom_keycodes {
 
 
 // ┌───────────────────────────────────────────────────────────┐
+// │ d e f i n e   c o m b o s                                 │
+// └───────────────────────────────────────────────────────────┘
+
+const uint16_t PROGMEM combo1[] = {KC_W, KC_Q, COMBO_END};
+const uint16_t PROGMEM combo2[] = {KC_U, KC_Y, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(combo1, UC(0x00C4)),
+    COMBO(combo2, KC_F),
+};
+
+//enum combos {
+//    AQ_AE,
+//    UJ_UE,
+//    OL_OE,
+//    COMBO_LENGTH
+//};
+//
+//uint16_t COMBO_LEN = COMBO_LENGTH;
+//
+//const uint16_t PROGMEM aq_combo[] = {KC_A, KC_Q, COMBO_END};
+//const uint16_t PROGMEM uj_combo[] = {KC_U, KC_J, COMBO_END};
+//const uint16_t PROGMEM ol_combo[] = {KC_O, KC_L, COMBO_END};
+//
+//combo_t key_combos[] = {
+//  [AQ_AE] = COMBO(aq_combo, UC(0x00C4)),
+//  [UJ_UE] = COMBO(uj_combo, UC(0x00DC)),
+//  [OL_OE] = COMBO(ol_combo, UC(0x00D6)),
+//};
+
+
+// ┌───────────────────────────────────────────────────────────┐
 // │ d e f i n e   s o u n d s                                 │
 // └───────────────────────────────────────────────────────────┘
 
