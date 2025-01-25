@@ -46,7 +46,7 @@ thumbstick_polar_position_t get_thumbstick_polar_position(int16_t x, int16_t y) 
 }
 
 bool update_keystate(uint16_t angle_from, uint16_t angle_to, uint16_t angle) {
-    return (angle_from < angle && angle <= angle_to);
+    return (angle_from <= angle && angle <= angle_to);
 }
 
 void update_keycode(uint16_t keycode, bool keystate, bool last_keystate) {
@@ -70,7 +70,7 @@ void thumbstick(controller_state_t controller_state) {
     // Update WASD state depending on thumbstick position
     // if thumbstick out of of deadzone
     if (thumbstick_polar_position.distance >= _DEADZONE) {
-        wasd_state.w = update_keystate(  -1,  90, thumbstick_polar_position.angle);
+        wasd_state.w = update_keystate(  0,  90, thumbstick_polar_position.angle);
         // A angle:  45 - 180
         wasd_state.a = update_keystate( 45, 181, thumbstick_polar_position.angle);
         // S angle: 135 - 270
