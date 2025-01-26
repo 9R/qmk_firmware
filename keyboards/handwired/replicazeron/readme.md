@@ -33,44 +33,44 @@ Full schematics can be found in this repo:
 https://github.com/9R/replicazeron_schematics
 
 ### Rows
-|row| promiro gpios | promicro pin | stm32F103 gpios |   color |
-|---|---------------|--------------|-----------------|---------|
-| 0 |          B1   |          15  |          B15    |  red    |
-| 1 |          B3   |          14  |           A8    |  blue   |
-| 2 |          B2   |          16  |           A9    |  yellow |
-| 3 |          B6   |          10  |          A10    |  brown  |
-| 4 |          B5   |           9  |          A15    |  orange |
-| 5 |          B4   |           8  |           B3    |  green  |
+|row| promiro gpios | promicro pin | stm32F103 gpios | pi pico rp2040 gpios |   color |
+|---|---------------|--------------|-----------------|----------------------|---------|
+| 0 |          B1   |          15  |          B15    |            GPIO16    |  red    |
+| 1 |          B3   |          14  |           A8    |            GPIO17    |  blue   |
+| 2 |          B2   |          16  |           A9    |            GPIO18    |  yellow |
+| 3 |          B6   |          10  |          A10    |            GPIO19    |  brown  |
+| 4 |          B5   |           9  |          A15    |            GPIO20    |  orange |
+| 5 |          B4   |           8  |           B3    |            GPIO21    |  green  |
 
 ### Columns
-|col| promiro gpios | promicro pin | stm32F103 gpios |  color  |
-|---|---------------|--------------|-----------------|---------|
-| 0 |         C6    |            5 |          A7     |  white  |
-| 1 |         D4    |            4 |          A6     |  grey   |
-| 2 |         D7    |            6 |          A5     |  violet |
-| 3 |         E6    |            7 |          A4     |  grey   |
-| 4 |         F7    |           A0 |          B4     |  white  |
+|col| promiro gpios | promicro pin | stm32F103 gpios | pi pico rp2040 gpios |  color  |
+|---|---------------|--------------|-----------------|----------------------|---------|
+| 0 |         C6    |            5 |          A7     |            GPIO10    |  white  |
+| 1 |         D4    |            4 |          A6     |            GPIO11    |  grey   |
+| 2 |         D7    |            6 |          A5     |            GPIO12    |  violet |
+| 3 |         E6    |            7 |          A4     |            GPIO13    |  grey   |
+| 4 |         F7    |           A0 |          B4     |            GPIO14    |  white  |
 
 ### Analog
-| promicro gpio | stm32F103 gpio | pin | color |
-|---------------|----------------|-----|-------|
-|          GND  |           GND  | GND | white |
-|          VCC  |           VCC  | VCC | red   |
-|          F4   |           B1   | VRx | brown |
-|          F5   |           B0   | VRy | yellow|
-|               |                | SW  | blue  |
+| promicro gpio | stm32F103 gpio | pi pico rp2040 gpios | pin | color |
+|---------------|----------------|----------------------|-----|-------|
+|          GND  |           GND  |        GND           | GND | white |
+|          VCC  |           VCC  |        VCC (3.3v)    | VCC | red   |
+|          F4   |           B1   |        GPIO27        | VRx | brown |
+|          F5   |           B0   |        GPIO28        | VRy | yellow|
+|               |                |                      | SW  | blue  |
 
 ### OLED
-| promicro gpio | stm32F103 gpio | pin | color |
-|---------------|----------------|-----|-------|
-|          GND  |           GND  | GND | white |
-|          VCC  |           VCC  | VCC | red   |
-|           D4  |           B10  | SDA | green |
-|           C6  |           B11  | SCL | yellow|
+| promicro gpio | stm32F103 gpio | pi pico rp2040 gpios | pin | color |
+|---------------|----------------|----------------------|-----|-------|
+|          GND  |           GND  |        GND           | GND | white |
+|          VCC  |           VCC  |        VCC (3.3v)    | VCC | red   |
+|           D4  |           B10  |        GPIO0         | SDA | green |
+|           C6  |           B11  |        GPIO1         | SCL | yellow|
 
 ### LIGHTING
-| promicro gpio | stm32F103 gpio | pin  | LED    |
-|---------------|----------------|------|--------|
-|           D2  |           B13  | GND  | LED0   |
-|           D3  |           B12  | VCC  | LED1   |
-|               |           B14  | Data | WS2812 |
+| promicro gpio | stm32F103 gpio | pi pico rp2040 gpios | pin  | LED    |
+|---------------|----------------|----------------------|------|--------|
+|           D2  |           B13  |        GPIO2         | GND  | LED0   |
+|           D3  |           B12  |        GPIO3         | VCC  | LED1   |
+|               |           B14  |        GPIO4         | Data | WS2812 |
