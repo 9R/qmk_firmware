@@ -17,3 +17,6 @@ DEFAULT_FOLDER = handwired/replicazeron/rp2040
 # add below lines for rp2040
 WS2812_DRIVER = vendor
 ANALOG_DRIVER_REQUIRED = yes
+
+# rgd indicator
+RGBINDICATORS = yes
