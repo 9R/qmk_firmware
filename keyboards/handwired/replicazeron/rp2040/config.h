@@ -16,22 +16,20 @@
 
 #pragma once
 
-#define THUMBSTICK_DEBUG
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET // Activates the double-tap behavior
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U // Timeout window in ms in which the double tap can occur.
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25 // Specify a optional status led by GPIO number which blinks when entering the bootloader
 
-/* rgb indicadors*/
-#define RGBINDICATORS
-#define RGBLIGHT_LAYERS
-#define RGBLIGHT_LAYERS_RETAIN_VAL
-#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
+#define FORCE_NKRO
 
-/* joystick configuration */
-#define JOYSTICK_BUTTON_COUNT 0
-#define JOYSTICK_AXIS_COUNT 2
-#define JOYSTICK_AXIS_RESOLUTION 10
+/* I2C Config */
+#define I2C_DRIVER I2CD1
+#define I2C1_SDA_PIN GP2
+#define I2C1_SCL_PIN GP3
 
-#define _DEADZONE  100  // 0 to _SHIFTZONE-1
-#define _SHIFTZONE 350  // _DEADZONE+1 to 600
-#define _THUMBSTICK_ROTATION 100 //degrees, adjusts forward direction
+#define STATUS_LED_A_PIN B13
+#define STATUS_LED_B_PIN B12
 
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+#define JOYSTICK_DEBUG
+#define ANALOG_AXIS_PIN_X GP27
+#define ANALOG_AXIS_PIN_Y GP28
