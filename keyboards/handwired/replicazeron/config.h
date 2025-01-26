@@ -18,6 +18,12 @@
 
 #define THUMBSTICK_DEBUG
 
+/* rgb indicadors*/
+#define RGBINDICATORS
+#define RGBLIGHT_LAYERS
+#define RGBLIGHT_LAYERS_RETAIN_VAL
+#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
+
 /* joystick configuration */
 #define JOYSTICK_BUTTON_COUNT 0
 #define JOYSTICK_AXIS_COUNT 2
