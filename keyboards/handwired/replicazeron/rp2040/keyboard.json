@@ -1,0 +1,33 @@
+{   
+    "keyboard_name": "Replicazeron",
+    "processor": "RP2040",
+    "bootloader": "rp2040", 
+    "features": {
+        "bootmagic": true,
+        "console": true,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "rgblight": true
+    },
+    "matrix_pins": {
+        "cols": ["GP10", "GP11", "GP12", "GP13","GP14"],
+        "rows": ["GP16", "GP17", "GP18", "GP19", "GP20", "GP21"]
+    },
+    "rgblight": {
+        "led_count": 8
+        "animations": {
+            "breathing": true,
+            "knight": true,
+            "rainbow_mood": true,
+            "rainbow_swirl": true,
+            "twinkle": true
+        }
+    },
+    "usb": {
+        "device_version": "0.0.3"
+    },
+    "ws2812": {
+        "pin": "GP4"
+    }
+}
