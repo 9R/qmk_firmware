@@ -15,14 +15,27 @@
  */
 
 #include "replicazeron.h"
+#include "analog.h"
 
 controller_state_t controller_state;
 
 #ifdef JOYSTICK_ENABLE
 joystick_config_t joystick_axes[JOYSTICK_AXIS_COUNT] = {
-    JOYSTICK_AXIS_IN(ANALOG_AXIS_PIN_X , 0, 512, 1023),
-    JOYSTICK_AXIS_IN(ANALOG_AXIS_PIN_Y , 0, 512, 1023)
+    JOYSTICK_AXIS_IN(ANALOG_AXIS_PIN_X , _Xmin, _Xrest, _Xmax),
+    JOYSTICK_AXIS_IN(ANALOG_AXIS_PIN_Y , _Ymin, _Yrest,  _Ymax)
 };
+
+__attribute__((weak)) uint16_t joystick_axis_sample(uint8_t axis) {
+    if (axis >= JOYSTICK_AXIS_COUNT) return 0;
+
+    int16_t rawValue = analogReadPin(joystick_axes[axis].input_pin);
+
+    if(joystick_axes[axis].mid_digit - _DEADZONE < rawValue && rawValue < joystick_axes[axis].mid_digit + _DEADZONE){
+        return joystick_axes[axis].mid_digit;
+    }
+    else
+        return rawValue;
+}
 #endif
 
 #ifdef THUMBSTICK_ENABLE
