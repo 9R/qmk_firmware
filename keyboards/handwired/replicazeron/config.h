@@ -23,9 +23,16 @@
 #define JOYSTICK_AXIS_COUNT 2
 #define JOYSTICK_AXIS_RESOLUTION 10
 
-#define _DEADZONE  100  // 0 to _SHIFTZONE-1
+#define _DEADZONE  50  // 0 to _SHIFTZONE-1
 #define _SHIFTZONE 350  // _DEADZONE+1 to 600
 #define _THUMBSTICK_ROTATION 100 //degrees, adjusts forward direction
+
+#define _Xrest 570
+#define _Yrest 570
+#define _Xmin 210
+#define _Ymin 50
+#define _Xmax 1023
+#define _Ymax 1023
 
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
