@@ -13,7 +13,7 @@
         "rows": ["B15", "A8", "A9", "A10", "A15", "B3"]
     },
     "rgblight": {
-        "led_count": 6,
+        "led_count": 8,
         "animations": {
             "breathing": true,
             "knight": true,
