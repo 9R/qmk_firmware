@@ -33,34 +33,29 @@ void housekeeping_task_kb(void) {
     }
 }
 #endif
+
 #ifdef RGBINDICATORS
 // Define layers
-const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 2, HSV_RED}       // Light 1 LEDs, starting with LED 0
+const rgblight_segment_t PROGMEM capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 2, HSV_RED}       // Light 1st 2 LEDs red. when CAPSLOCK is on
 );
 
-// Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
+// Light 1st LED cyan
 const rgblight_segment_t PROGMEM layer0[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 1, HSV_CYAN}
 );
-// Light LEDs 11 & 12 in purple when keyboard layer 2 is active
+// Light 2nd LED purple
 const rgblight_segment_t PROGMEM layer1[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 1, HSV_PURPLE}
 );
-//etc.... end def layers
 
-// Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    my_capslock_layer,
+    capslock_layer, 
     layer0,
     layer1
-    //my_layer1_layer,    // Overrides caps lock layer
-    //my_layer2_layer,    // Overrides other layers
-    //my_layer3_layer     // Overrides other layers
 );
 
 void keyboard_post_init_user(void) {
-    // Enable the LED layers
     rgblight_layers = my_rgb_layers;
 }
 
@@ -115,9 +110,12 @@ bool oled_task_kb(void) {
     return false;
 }
 
+#ifdef OLED_ROTATE180
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return OLED_ROTATION_180;
 }
+#endif
+
 #endif
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
