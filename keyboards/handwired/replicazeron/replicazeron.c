@@ -15,6 +15,7 @@
  */
 
 #include "replicazeron.h"
+#include "analog.h"
 
 controller_state_t controller_state;
 
@@ -32,6 +33,52 @@ void housekeeping_task_kb(void) {
     }
 }
 #endif
+
+#ifdef RGBINDICATORS
+// Define layers
+const rgblight_segment_t PROGMEM capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 2, HSV_RED}       // Light 1st 2 LEDs red. when CAPSLOCK is on
+);
+
+// Light 1st LED cyan
+const rgblight_segment_t PROGMEM layer0[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1, HSV_CYAN}
+);
+// Light 2nd LED purple
+const rgblight_segment_t PROGMEM layer1[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_PURPLE}
+);
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    capslock_layer, 
+    layer0,
+    layer1
+);
+
+void keyboard_post_init_user(void) {
+    rgblight_layers = my_rgb_layers;
+}
+
+//enabling and disabling
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.caps_lock);
+    return true;
+}
+
+void set_wsleds(uint8_t highest_active_layer) {
+    if (highest_active_layer > 3) {
+        rgblight_set_layer_state(1, false);
+        rgblight_set_layer_state(2, false);
+        return;
+    }
+
+    // use bitwise operations to display active layer in binary
+    bool bit1 = (highest_active_layer & 1);
+    bool bit2 = (highest_active_layer & 2);
+    rgblight_set_layer_state(1, bit1);
+    rgblight_set_layer_state(2, bit2);
+}
+#endif //RGBINDICATORS
 
 void keyboard_post_init_kb(void) {
     // Customise these values to desired behaviour
@@ -62,13 +109,19 @@ bool oled_task_kb(void) {
     draw_oled(controller_state);
     return false;
 }
+
+#ifdef OLED_ROTATE180
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return OLED_ROTATION_180;
+}
+#endif
+
 #endif
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_user(keycode, record)) {
         return false;
     }
-
 
     if (keycode == JOYMODE && record->event.pressed) {
       if (!controller_state.wasdMode) {
@@ -98,6 +151,10 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
 #ifdef LEDS_ENABLE
     set_leds(controller_state.highestActiveLayer) ;
 #endif // LEDS_ENABLE
+
+#ifdef RGBINDICATORS
+    set_wsleds(controller_state.highestActiveLayer) ;
+#endif //RGBINDICATORS
 
     return state;
 }

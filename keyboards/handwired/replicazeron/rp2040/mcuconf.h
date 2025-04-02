@@ -1,4 +1,4 @@
-/* Copyright 2023 9R
+/* Copyright 2022 9R 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,22 +16,8 @@
 
 #pragma once
 
-#define THUMBSTICK_DEBUG
+#include_next <mcuconf.h>
 
-/* rgb indicadors*/
-#define RGBINDICATORS
-#define RGBLIGHT_LAYERS
-#define RGBLIGHT_LAYERS_RETAIN_VAL
-#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
-
-/* joystick configuration */
-#define JOYSTICK_BUTTON_COUNT 0
-#define JOYSTICK_AXIS_COUNT 2
-#define JOYSTICK_AXIS_RESOLUTION 10
-
-#define _DEADZONE  100  // 0 to _SHIFTZONE-1
-#define _SHIFTZONE 350  // _DEADZONE+1 to 600
-#define _THUMBSTICK_ROTATION 100 //degrees, adjusts forward direction
-
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+//enable i2c for OLED
+#undef RP_I2C_USE_I2C0
+#define RP_I2C_USE_I2C0 TRUE
