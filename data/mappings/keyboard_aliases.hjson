@@ -332,6 +332,9 @@
     "handwired/jscotto/scottostarter": {
         "target": "handwired/scottokeebs/scottostarter"
     },
+    "handwired/replicazeron": {
+        "target": "handwired/replicazeron/stm32f103"
+    },
     "helix": {
         "target": "helix/beta"
     },
