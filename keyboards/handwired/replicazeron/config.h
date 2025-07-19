@@ -21,8 +21,9 @@
 /* rgb indicadors*/
 #define RGBINDICATORS
 #define RGBLIGHT_LAYERS
-#define RGBLIGHT_LAYERS_RETAIN_VAL
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
+#define RGBLIGHT_LIMIT_VAL 128
+#define INDICATOR_COLOR HSV_YELLOW
 
 /* joystick configuration */
 #define JOYSTICK_BUTTON_COUNT 0

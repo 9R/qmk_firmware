@@ -35,28 +35,21 @@ void housekeeping_task_kb(void) {
 #endif
 #ifdef RGBINDICATORS
 // Define layers
-const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 2, HSV_RED}       // Light 1 LEDs, starting with LED 0
-);
-
-// Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
 const rgblight_segment_t PROGMEM layer0[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 1, HSV_CYAN}
+    {0, 2, 90, 255, 0}
 );
-// Light LEDs 11 & 12 in purple when keyboard layer 2 is active
 const rgblight_segment_t PROGMEM layer1[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_PURPLE}
+    {0, 1, INDICATOR_COLOR}
 );
-//etc.... end def layers
+const rgblight_segment_t PROGMEM layer2[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, INDICATOR_COLOR}
+);
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    my_capslock_layer,
     layer0,
-    layer1
-    //my_layer1_layer,    // Overrides caps lock layer
-    //my_layer2_layer,    // Overrides other layers
-    //my_layer3_layer     // Overrides other layers
+    layer1,
+    layer2
 );
 
 void keyboard_post_init_user(void) {
@@ -66,7 +59,8 @@ void keyboard_post_init_user(void) {
 
 //enabling and disabling
 bool led_update_user(led_t led_state) {
-    rgblight_set_layer_state(0, led_state.caps_lock);
+    //disable animation on indicator leds
+    rgblight_set_layer_state(0, true);
     return true;
 }
 
