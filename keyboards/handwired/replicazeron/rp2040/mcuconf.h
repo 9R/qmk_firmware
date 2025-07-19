@@ -1,4 +1,4 @@
-/* Copyright 2022 9R 
+/* Copyright 2022 9R
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

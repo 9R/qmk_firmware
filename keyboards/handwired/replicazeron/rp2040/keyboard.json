@@ -1,7 +1,7 @@
-{   
+{
     "keyboard_name": "Replicazeron",
     "processor": "RP2040",
-    "bootloader": "rp2040", 
+    "bootloader": "rp2040",
     "features": {
         "bootmagic": true,
         "console": true,
@@ -15,7 +15,10 @@
         "rows": ["GP16", "GP17", "GP18", "GP19", "GP20", "GP21"]
     },
     "rgblight": {
-        "led_count": 8
+        "led_count": 8,
+        "layers": {
+            "enabled": true
+        },
         "animations": {
             "breathing": true,
             "knight": true,
