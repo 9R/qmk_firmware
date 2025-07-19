@@ -33,7 +33,8 @@ void housekeeping_task_kb(void) {
     }
 }
 #endif
-#ifdef RGBINDICATORS
+
+#ifdef RGB_INDICATORS
 // Define layers
 const rgblight_segment_t PROGMEM layer0[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 2, 90, 255, 0}
@@ -77,7 +78,7 @@ void set_wsleds(uint8_t highest_active_layer) {
     rgblight_set_layer_state(1, bit1);
     rgblight_set_layer_state(2, bit2);
 }
-#endif //RGBINDICATORS
+#endif //RGB_INDICATORS
 
 void keyboard_post_init_kb(void) {
     // Customise these values to desired behaviour
@@ -144,9 +145,9 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
     set_leds(controller_state.highestActiveLayer) ;
 #endif // LEDS_ENABLE
 
-#ifdef RGBINDICATORS
+#ifdef RGB_INDICATORS
     set_wsleds(controller_state.highestActiveLayer) ;
-#endif //RGBINDICATORS
+#endif //RGB_INDICATORS
 
     return state;
 }
