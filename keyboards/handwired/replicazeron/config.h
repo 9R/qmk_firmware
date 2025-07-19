@@ -19,10 +19,11 @@
 #define THUMBSTICK_DEBUG
 
 /* rgb indicadors*/
-#define RGBINDICATORS
+#ifdef RGB_INDICATORS
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #define RGBLIGHT_LIMIT_VAL 128
 #define INDICATOR_COLOR HSV_YELLOW
+#endif
 
 /* joystick configuration */
 #define JOYSTICK_BUTTON_COUNT 0

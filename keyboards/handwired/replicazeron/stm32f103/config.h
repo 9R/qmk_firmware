@@ -21,9 +21,10 @@
 #define I2C1_SDA_PIN B11
 #define I2C1_SCL_PIN B10
 
+#ifdef LEDS_ENABLE
 #define STATUS_LED_A_PIN B13
 #define STATUS_LED_B_PIN B12
+#endif
 
 #define ANALOG_AXIS_PIN_X B0
 #define ANALOG_AXIS_PIN_Y B1
-

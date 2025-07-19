@@ -16,8 +16,10 @@
 
 #pragma once
 
+#ifdef LEDS_ENABLE
 #define STATUS_LED_A_PIN D2
 #define STATUS_LED_B_PIN D3
+#endif
 
 #define ANALOG_AXIS_PIN_X F4
 #define ANALOG_AXIS_PIN_Y F5
