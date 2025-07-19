@@ -1,12 +1,6 @@
 JOYSTICK_ENABLE = yes
 OLED_ENABLE = yes
 
-# rgb indicator
-RGB_INDICATORS = yes
-
-# led indicators. do not enable this at the same time as RGBINDICATORS
-LED_INDICATORS = no
-
 THUMBSTICK_ENABLE = yes
 
 LTO_ENABLE = yes
