@@ -22,7 +22,11 @@
 #ifdef RGB_INDICATORS
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #define RGBLIGHT_LIMIT_VAL 128
-#define INDICATOR_COLOR HSV_YELLOW
+
+// set custom rgb indicator colors as hue, saturation, value or use a
+// hsv-macro from quantum/colors.h, i.e. HSV_RED
+#define INDICATOR_COLOR_ON HSV_CHARTREUSE
+#define INDICATOR_COLOR_OFF 64, 255, 64
 #endif
 
 /* joystick configuration */
