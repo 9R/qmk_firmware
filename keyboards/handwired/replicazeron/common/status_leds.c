@@ -14,12 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "leds.h"
+#include "status_leds.h"
 #include <stdbool.h>
 #include "gpio.h"
 
-//////////// Status LEDs //////////////
-void init_leds(void) {
+//////////// GPIO Status LEDs //////////////
+void init_led_status(void) {
     // Both LEDs off, they have inverted logic
     gpio_set_pin_output(STATUS_LED_A_PIN);
     gpio_set_pin_output(STATUS_LED_B_PIN);
@@ -27,7 +27,7 @@ void init_leds(void) {
     gpio_write_pin_high(STATUS_LED_B_PIN);
 }
 
-void set_leds(uint8_t highest_active_layer) {
+void set_led_status(uint8_t highest_active_layer) {
     // any layer other than 0-3, quit and LEDs off
     if (highest_active_layer > 3) {
         gpio_write_pin_high(STATUS_LED_A_PIN);

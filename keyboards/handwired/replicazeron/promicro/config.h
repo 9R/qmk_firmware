@@ -16,7 +16,7 @@
 
 #pragma once
 
-#ifdef LEDS_ENABLE
+#ifdef LED_INDICATORS
 #define STATUS_LED_A_PIN D2
 #define STATUS_LED_B_PIN D3
 #endif
