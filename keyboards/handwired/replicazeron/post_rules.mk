@@ -5,6 +5,7 @@ endif
 
 ifeq ($(strip $(RGB_INDICATORS)), yes)
     OPT_DEFS += -DRGB_INDICATORS
+    SRC += status_rgb.c
 endif
 
 ifeq ($(strip $(OLED_ENABLE)), yes)

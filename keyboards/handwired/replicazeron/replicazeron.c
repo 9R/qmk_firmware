@@ -35,50 +35,17 @@ void housekeeping_task_kb(void) {
 #endif
 
 #ifdef RGB_INDICATORS
-// Define layers
-const rgblight_segment_t PROGMEM layer0[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 2, 90, 255, 0}
-);
-const rgblight_segment_t PROGMEM layer1[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 1, INDICATOR_COLOR}
-);
-const rgblight_segment_t PROGMEM layer2[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, INDICATOR_COLOR}
-);
-
-// Now define the array of layers. Later layers take precedence
-const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    layer0,
-    layer1,
-    layer2
-);
-
 void keyboard_post_init_user(void) {
-    // Enable the LED layers
-    rgblight_layers = my_rgb_layers;
+    // Init rgb status layers
+    rgblight_layers = init_rgb_status();
 }
 
-//enabling and disabling
+// suppress rgblight effect on indicator segment
 bool led_update_user(led_t led_state) {
-    //disable animation on indicator leds
     rgblight_set_layer_state(0, true);
     return true;
 }
-
-void set_wsleds(uint8_t highest_active_layer) {
-    if (highest_active_layer > 3) {
-        rgblight_set_layer_state(1, false);
-        rgblight_set_layer_state(2, false);
-        return;
-    }
-
-    // use bitwise operations to display active layer in binary
-    bool bit1 = (highest_active_layer & 1);
-    bool bit2 = (highest_active_layer & 2);
-    rgblight_set_layer_state(1, bit1);
-    rgblight_set_layer_state(2, bit2);
-}
-#endif //RGB_INDICATORS
+#endif // RGB_INDICATORS
 
 void keyboard_post_init_kb(void) {
     // Customise these values to desired behaviour
@@ -146,7 +113,7 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
 #endif // LED_INDICATORS
 
 #ifdef RGB_INDICATORS
-    set_wsleds(controller_state.highestActiveLayer) ;
+    set_rgb_status(controller_state.highestActiveLayer) ;
 #endif //RGB_INDICATORS
 
     return state;

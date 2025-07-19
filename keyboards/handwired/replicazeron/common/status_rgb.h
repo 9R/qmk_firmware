@@ -16,39 +16,10 @@
 
 #pragma once
 
-#include "quantum.h"
+#include "rgblight.h"
 
-#include "state.h"
+#include <stdint.h>
 
-#ifdef LED_INDICATORS
-#    include "status_leds.h"
-#endif
+const rgblight_segment_t* const* init_rgb_status(void);
 
-#ifdef RGB_INDICATORS
-#    include "status_rgb.h"
-#endif
-
-#ifdef OLED_ENABLE
-#    include "oled.h"
-#endif
-
-#ifdef THUMBSTICK_ENABLE
-#    include "thumbstick.h"
-#endif
-
-enum kb_layers {
-    _BASE,
-    _SHOOTER,
-    _MISC,
-    _SETTINGS,
-};
-
-enum kb_keycodes {
-    JOYMODE = QK_USER,
-    AUTORUN,
-    M_UP,
-    M_DWN,
-    M_L,
-    M_R,
-    M_SEL
-};
+void set_rgb_status(uint8_t active_layer);
