@@ -20,8 +20,8 @@
 
 #include "state.h"
 
-#ifdef LEDS_ENABLE
-#    include "leds.h"
+#ifdef LED_INDICATORS
+#    include "status_leds.h"
 #endif
 
 #ifdef OLED_ENABLE

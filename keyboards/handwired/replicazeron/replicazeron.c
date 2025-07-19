@@ -87,9 +87,9 @@ void keyboard_post_init_kb(void) {
     // debug_keyboard = true;
     // debug_mouse = true;
 
-#ifdef LEDS_ENABLE
-    init_leds();
-#endif // LEDS_ENABLE
+#ifdef LED_INDICATORS
+    init_led_status();
+#endif // LED_INDICATORS
 
 #ifdef THUMBSTICK_ENABLE
     init_wasd_state();
@@ -141,9 +141,9 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
     state = layer_state_set_user(state);
     controller_state.highestActiveLayer = get_highest_layer(state) ;
 
-#ifdef LEDS_ENABLE
-    set_leds(controller_state.highestActiveLayer) ;
-#endif // LEDS_ENABLE
+#ifdef LED_INDICATORS
+    set_led_status(controller_state.highestActiveLayer) ;
+#endif // LED_INDICATORS
 
 #ifdef RGB_INDICATORS
     set_wsleds(controller_state.highestActiveLayer) ;

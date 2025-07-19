@@ -18,6 +18,6 @@
 
 #include <stdint.h>
 
-void init_leds(void);
+void init_led_status(void);
 
-void set_leds(uint8_t active_layer);
+void set_led_status(uint8_t active_layer);

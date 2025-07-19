@@ -1,6 +1,6 @@
 ifeq ($(strip $(LED_INDICATORS)), yes)
-    OPT_DEFS += -DLEDS_ENABLE
-    SRC += leds.c
+    OPT_DEFS += -DLED_INDICATORS
+    SRC += status_leds.c
 endif
 
 ifeq ($(strip $(RGB_INDICATORS)), yes)
