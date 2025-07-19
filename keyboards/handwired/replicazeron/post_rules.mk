@@ -12,6 +12,10 @@ ifeq ($(strip $(OLED_ENABLE)), yes)
     SRC += oled.c
 endif
 
+ifeq ($(strip $(OLED_ROTATE180)), yes)
+    OPT_DEFS += -DOLED_ROTATE180
+endif
+
 ifeq ($(strip $(THUMBSTICK_ENABLE)), yes)
     OPT_DEFS += -DTHUMBSTICK_ENABLE
     SRC += thumbstick.c

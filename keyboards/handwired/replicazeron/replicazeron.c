@@ -76,7 +76,13 @@ bool oled_task_kb(void) {
     draw_oled(controller_state);
     return false;
 }
-#endif
+
+#ifdef OLED_ROTATE180
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return OLED_ROTATION_180;
+}
+#endif // OLED_ROTATE180
+#endif // OLED_ENABLE
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_user(keycode, record)) {
